@@ -18,7 +18,6 @@ namespace RepareRede
             {
                 var ping = new Ping();                
                 var replay = ping.Send("216.58.202.14");//google.com
-                //var replay = ping.Send("10.0.16.14");//google.com
 
                 if (replay.Status == IPStatus.Success)
                 {
@@ -46,9 +45,7 @@ namespace RepareRede
             using (var proc = new Process())
             {
                 proc.StartInfo = new ProcessStartInfo(@"cmd");
-                //proc.StartInfo.Arguments = "/k ping google.com -t";
                 proc.StartInfo.Arguments = @"/k netsh interface set interface ""ethernet"" DISABLED";
-                //proc.StartInfo.Arguments = @"/k netsh interface set interface ""ethernet"" ENABLED";
                 proc.StartInfo.RedirectStandardOutput = true;
                 proc.StartInfo.UseShellExecute = false;
 
@@ -64,8 +61,6 @@ namespace RepareRede
             using (var proc = new Process())
             {
                 proc.StartInfo = new ProcessStartInfo(@"cmd");
-                //proc.StartInfo.Arguments = "/k ping google.com -t";
-                //proc.StartInfo.Arguments = @"/k netsh interface set interface ""ethernet"" DISABLED";
                 proc.StartInfo.Arguments = @"/k netsh interface set interface ""ethernet"" ENABLED";
                 proc.StartInfo.RedirectStandardOutput = true;
                 proc.StartInfo.UseShellExecute = false;
@@ -73,8 +68,6 @@ namespace RepareRede
                 proc.Start();
                 "Habilitando placa de rede".Log(ConsoleColor.Yellow);
                 proc.WaitForExit(10000);
-
-                //} while (proc.ExitCode > 0);
 
                 proc.CloseMainWindow();
                 proc.Close();
