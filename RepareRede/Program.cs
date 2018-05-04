@@ -15,7 +15,7 @@ namespace RepareRede
             Console.Title = "Reparar Rede";
             var status = IPStatus.NoResources;
             do
-            {
+            { 
                 var ping = new Ping();                
                 var replay = ping.Send("216.58.202.14");//google.com
 
